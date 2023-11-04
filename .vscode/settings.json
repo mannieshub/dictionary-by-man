@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/53bad212-95a0-447f-bcae-fd436fbd4f60/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/dictionary-server",
+    "appService.deploySubpath": "."
+}

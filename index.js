@@ -37,7 +37,7 @@ function handleEvents(event) {
       for (var i = 0; i < data[0].meanings.length; i++) {
 
         const partOfSpeech = data[0].meanings[i].partOfSpeech;
-        var meanings = data[0].meanings[i].definitions[i].definition;
+        var meanings = data[0].meanings[i].definitions[i].definition; //อาจลองแก้เป็น definitions[0] เพื่อ lock เอากล่องแรก
 
         if(partOfSpeech==="noun"||partOfSpeech==="verb"){
                 message += partOfSpeech +" : "+meanings
