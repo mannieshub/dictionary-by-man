@@ -3,4 +3,5 @@
 Deploy server on Microsoft Azure <br/>
 This server created by using ExpressJS
 
-![QR Code](image.png)
+![QR Code](image.png) <br/>
+Scan this QR Code for becoming friends
