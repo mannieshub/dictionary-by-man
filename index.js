@@ -45,7 +45,8 @@ function handleEvents(event) {
             
           // }
          
-      } callback(message, event);
+      }callback(message, event);
+      message =""
     })
     .catch((error) => {
       console.error("Have problem with ", error);
