@@ -45,6 +45,7 @@ function handleEvents(event) {
             
           // }
           callback(message, event);
+          message=""
       }
     })
     .catch((error) => {
