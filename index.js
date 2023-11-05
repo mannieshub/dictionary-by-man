@@ -10,7 +10,7 @@ const config = {
 };
 
 const client = new line.Client(config);
-var message=""
+var message = "";
 
 app.post("/webhook", line.middleware(config), (req, res) => {
   Promise.all([req.body.events.map(handleEvents)]).then((result) =>
@@ -29,36 +29,36 @@ function handleEvents(event) {
     .then((response) => {
       if (!response.ok) {
         //throw new Error("have some problem while connecting");
-        callback("dont have this word on this bot",event)
+        callback("dont have this word on this bot", event);
       }
       return response.json();
     })
     .then((data) => {
+
       for (var i = 0; i < data[0].meanings.length; i++) {
-
-        const partOfSpeech = data[0].meanings[i].partOfSpeech;
-        var meanings = data[0].meanings[i].definitions[i].definition; //อาจลองแก้เป็น definitions[0] เพื่อ lock เอากล่องแรก
-
-        if(partOfSpeech==="noun"||partOfSpeech==="verb"){
-                message += partOfSpeech +" : "+meanings
-                callback(message,event)
-        }
-        message=""
-      }
+          var partOfSpeech = data[0].meanings[i].partOfSpeech;
+          var meanings = meanings = data[0].meanings[i].definitions[0].definition
+          message+=(partOfSpeech + " : \n" + meanings +"\n\n")
+          // for (var j=0;j<data[0].meanings[i].definitions.length;j++){
+          //   var meanings = meanings = data[0].meanings[i].definitions[j].definition
+          //   message += ((j+1) +" " + meanings+"\n\n");
+            
+          // }
+          
+      }callback(message, event);
     })
     .catch((error) => {
       console.error("Have problem with ", error);
     });
-  
 }
 
-function callback(message,event){
-    return client.replyMessage(event.replyToken, [
-        {
-          type: "text",
-          text: `${message}`,
-        },
-      ]);
+function callback(message, event) {
+  return client.replyMessage(event.replyToken, [
+    {
+      type: "text",
+      text: `${message}`,
+    },
+  ]);
 }
 
 app.get("/", (req, res) => {
