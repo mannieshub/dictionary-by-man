@@ -44,8 +44,8 @@ function handleEvents(event) {
           //   message += ((j+1) +" " + meanings+"\n\n");
             
           // }
-          
-      }callback(message, event);
+          callback(message, event);
+      }
     })
     .catch((error) => {
       console.error("Have problem with ", error);
