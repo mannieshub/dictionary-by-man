@@ -39,13 +39,8 @@ function handleEvents(event) {
           var partOfSpeech = data[0].meanings[i].partOfSpeech;
           var meanings = meanings = data[0].meanings[i].definitions[0].definition
           message+=(partOfSpeech + " : \n" + meanings +"\n\n")
-          // for (var j=0;j<data[0].meanings[i].definitions.length;j++){
-          //   var meanings = meanings = data[0].meanings[i].definitions[j].definition
-          //   message += ((j+1) +" " + meanings+"\n\n");
-            
-          // }
-         
-      }callback(message, event);
+      }
+      callback(message, event);
       message =""
     })
     .catch((error) => {
@@ -67,3 +62,4 @@ app.get("/", (req, res) => {
 });
 
 app.listen(8080, () => console.log("Start listening on port : 8080"));
+
